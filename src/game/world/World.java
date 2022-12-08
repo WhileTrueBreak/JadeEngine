@@ -50,7 +50,7 @@ public class World {
     	handler.setViewport(viewport);
 
     	GameObject go3 = new Rect("r1", new Transform(new Vector3f(0, 0, 0), new Vector2f(100, 100)));
-    	go3.setSpriteRenderer(new SpriteRenderer(new Sprite(Assets.getTexture(Assets.T_RED_ALPHA))));
+    	go3.setSpriteRenderer(new SpriteRenderer(new Sprite(Assets.getTexture(Assets.T_GREEN_ALPHA))));
     	this.addGameObject(go3);
     	GameObject go1 = new Rect("r1", new Transform(new Vector3f(1820, 0, 0), new Vector2f(100, 100)));
     	go1.setSpriteRenderer(new SpriteRenderer(new Sprite(Assets.getTexture(Assets.T_GREEN_ALPHA))));
@@ -59,7 +59,7 @@ public class World {
     	go2.setSpriteRenderer(new SpriteRenderer(new Sprite(Assets.getTexture(Assets.T_GREEN_ALPHA))));
     	this.addGameObject(go2);
     	GameObject go4 = new Rect("r1", new Transform(new Vector3f(1820, 980, 0), new Vector2f(100, 100)));
-    	go4.setSpriteRenderer(new SpriteRenderer(new Sprite(Assets.getTexture(Assets.T_RED_ALPHA))));
+    	go4.setSpriteRenderer(new SpriteRenderer(new Sprite(Assets.getTexture(Assets.T_GREEN_ALPHA))));
     	this.addGameObject(go4);
     	GameObject go5 = new Rect("r1", new Transform(new Vector3f(0, 0, 0), new Vector2f(1920, 1080)));
     	go5.setSpriteRenderer(new SpriteRenderer(new Sprite(Assets.getTexture(Assets.T_RED_ALPHA))));
