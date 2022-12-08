@@ -6,6 +6,7 @@ import org.joml.Vector3f;
 
 import engine.Window;
 import engine.gameobject.GameObject;
+import utils.Logging;
 
 public class Viewport {
 
@@ -45,7 +46,10 @@ public class Viewport {
 		float newWidth = Window.getWidth()*scale;
 		float newHeight = Window.getHeight()*scale;
 		
-		this.projMatrix.ortho(0, newWidth, 0, newHeight, 0, 100);
+		float yOffset = (this.windowHeight - DEFAULT_DIM_HEIGHT)/2;
+		float xOffset = (this.windowWidth - DEFAULT_DIM_WIDTH)/2;
+
+		this.projMatrix.ortho(-xOffset, newWidth - xOffset, -yOffset, newHeight - yOffset, 0, 100);
 	}
 	
 	public Matrix4f getProjMatrix() {
