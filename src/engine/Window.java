@@ -155,30 +155,34 @@ public class Window {
 			
 			endTime = GLFW.glfwGetTime();
 			framesElpsed++;
-			dt = endTime - beginTime;
+			this.dt = endTime - beginTime;
 			nextSec += endTime - beginTime;
 			beginTime = endTime;
-			if(nextSec >= avgTime) {
-				System.out.println("FPS: "+(int)(framesElpsed/nextSec));
-				nextSec-=avgTime;
-				framesElpsed = 0;
-			}
+			
+			// only run next part every second
+			if(nextSec < avgTime) continue;
+				
+			System.out.println("FPS: "+(int)(framesElpsed/nextSec));
+			nextSec-=avgTime;
+			framesElpsed = 0;
 		}
 	}
 	
 	public void updateDim() {
-		resized = false;
+		this.resized = false;
 		Vector2i dim = getWindowDim();
-		if(width != dim.x || height != dim.y) {
-			GL11.glViewport(0, 0, dim.x, dim.y);
-			width = dim.x;
-			height = dim.y;
-			resized = true;
-		}
+		
+		//check if resize if required
+		if(this.width == dim.x && this.height == dim.y) return;
+		
+		GL11.glViewport(0, 0, dim.x, dim.y);
+		this.width = dim.x;
+		this.height = dim.y;
+		this.resized = true;
 	}
 	
 	public double getDT() {
-		return dt;
+		return this.dt;
 	}
 	
 }
