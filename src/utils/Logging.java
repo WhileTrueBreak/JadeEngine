@@ -30,4 +30,13 @@ public class Logging {
 			System.out.println("|\t"+str);
 		}
 	}
+	
+	public static void printStack() {
+		System.out.println("Stack trace:");
+		StackTraceElement[] elements = Thread.currentThread().getStackTrace();
+		for (int i = 2; i < elements.length; i++) {
+		     StackTraceElement s = elements[i];
+		     System.out.println("\tat " + s.getClassName() + "." + s.getMethodName() + "(" + s.getFileName() + ":" + s.getLineNumber() + ")");
+		}
+	}
 }
