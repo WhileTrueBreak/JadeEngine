@@ -1,4 +1,4 @@
-package ui;
+package jadeEngine.ui;
 
 import game.Handler;
 

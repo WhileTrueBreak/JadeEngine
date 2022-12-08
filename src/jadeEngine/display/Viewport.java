@@ -1,12 +1,11 @@
-package engine.display;
+package jadeEngine.display;
 
 import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-import engine.Window;
-import engine.gameobject.GameObject;
-import utils.Logging;
+import jadeEngine.Window;
+import jadeEngine.gameobject.GameObject;
 
 public class Viewport {
 

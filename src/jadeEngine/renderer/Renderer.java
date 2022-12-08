@@ -1,13 +1,13 @@
-package engine.renderer;
+package jadeEngine.renderer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import engine.gameobject.GameObject;
-import engine.gameobject.SpriteRenderer;
-import engine.gfx.Texture;
+import jadeEngine.gameobject.GameObject;
+import jadeEngine.gameobject.SpriteRenderer;
+import jadeEngine.gfx.Texture;
 
 public class Renderer {
 

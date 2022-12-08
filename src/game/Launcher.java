@@ -1,6 +1,6 @@
 package game;
 
-import engine.Window;
+import jadeEngine.Window;
 
 public class Launcher {
 

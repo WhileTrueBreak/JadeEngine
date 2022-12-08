@@ -1,4 +1,4 @@
-package engine.gfx;
+package jadeEngine.gfx;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

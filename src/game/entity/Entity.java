@@ -1,7 +1,7 @@
 package game.entity;
 
-import engine.gameobject.GameObject;
-import engine.renderer.Transform;
+import jadeEngine.gameobject.GameObject;
+import jadeEngine.renderer.Transform;
 
 public abstract class Entity extends GameObject{
 

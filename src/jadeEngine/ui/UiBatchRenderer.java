@@ -1,4 +1,4 @@
-package ui;
+package jadeEngine.ui;
 
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -9,10 +9,10 @@ import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL30;
 
-import engine.Window;
-import engine.gfx.Shader;
-import engine.gfx.Texture;
 import game.res.Assets;
+import jadeEngine.Window;
+import jadeEngine.gfx.Shader;
+import jadeEngine.gfx.Texture;
 
 public class UiBatchRenderer {
 

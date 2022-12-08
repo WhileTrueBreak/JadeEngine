@@ -1,7 +1,7 @@
 package game.entity.staticEntity;
 
-import engine.renderer.Transform;
 import game.entity.Entity;
+import jadeEngine.renderer.Transform;
 
 public abstract class StaticEntity extends Entity{
 

@@ -1,11 +1,11 @@
-package ui;
+package jadeEngine.ui;
 
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
-import engine.gfx.Sprite;
-import engine.gfx.Texture;
-import ui.component.UiComponent;
+import jadeEngine.gfx.Sprite;
+import jadeEngine.gfx.Texture;
+import jadeEngine.ui.component.UiComponent;
 
 public class UiRenderer {
 	

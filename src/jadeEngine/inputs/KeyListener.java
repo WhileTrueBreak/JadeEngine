@@ -1,4 +1,4 @@
-package engine.inputs;
+package jadeEngine.inputs;
 
 import org.lwjgl.glfw.GLFW;
 

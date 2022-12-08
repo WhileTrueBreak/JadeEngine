@@ -1,6 +1,6 @@
-package ui.component;
+package jadeEngine.ui.component;
 
-import ui.Callback;
+import jadeEngine.ui.Callback;
 
 public class UiWrapper extends UiComponent{
 

@@ -1,6 +1,6 @@
 package game.entity.staticEntity;
 
-import engine.renderer.Transform;
+import jadeEngine.renderer.Transform;
 
 public class Rect extends StaticEntity{
 

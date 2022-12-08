@@ -1,4 +1,4 @@
-package ui.constraint;
+package jadeEngine.ui.constraint;
 
 public class CompoundConstraint extends UiConstraint{
 	

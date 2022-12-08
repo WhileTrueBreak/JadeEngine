@@ -3,9 +3,9 @@ package game.res;
 import java.util.HashMap;
 import java.util.Map;
 
-import engine.gfx.Shader;
-import engine.gfx.Spritesheet;
-import engine.gfx.Texture;
+import jadeEngine.gfx.Shader;
+import jadeEngine.gfx.Spritesheet;
+import jadeEngine.gfx.Texture;
 
 public class Assets {
 

@@ -1,4 +1,4 @@
-package ui.constraint;
+package jadeEngine.ui.constraint;
 
 import java.util.HashMap;
 

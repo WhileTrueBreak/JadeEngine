@@ -1,8 +1,8 @@
 package game;
 
-import engine.Window;
-import engine.display.Viewport;
 import game.world.World;
+import jadeEngine.Window;
+import jadeEngine.display.Viewport;
 
 public class Handler {
 	

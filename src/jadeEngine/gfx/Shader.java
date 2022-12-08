@@ -1,4 +1,4 @@
-package engine.gfx;
+package jadeEngine.gfx;
 
 import java.nio.FloatBuffer;
 

@@ -1,4 +1,4 @@
-package ui.constraint;
+package jadeEngine.ui.constraint;
 
 public class AbsoluteConstraint extends UiConstraint{
 

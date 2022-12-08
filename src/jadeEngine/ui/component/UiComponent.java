@@ -1,4 +1,4 @@
-package ui.component;
+package jadeEngine.ui.component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,12 +8,12 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 
-import engine.Window;
-import engine.inputs.MouseListener;
-import engine.renderer.Transform;
-import ui.Callback;
-import ui.UiRenderer;
-import ui.constraint.UiConstraint;
+import jadeEngine.Window;
+import jadeEngine.inputs.MouseListener;
+import jadeEngine.renderer.Transform;
+import jadeEngine.ui.Callback;
+import jadeEngine.ui.UiRenderer;
+import jadeEngine.ui.constraint.UiConstraint;
 
 public abstract class UiComponent {
 

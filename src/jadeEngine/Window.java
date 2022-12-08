@@ -1,4 +1,4 @@
-package engine;
+package jadeEngine;
 
 import java.nio.IntBuffer;
 
@@ -12,9 +12,9 @@ import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
 
-import engine.inputs.KeyListener;
-import engine.inputs.MouseListener;
 import game.Game;
+import jadeEngine.inputs.KeyListener;
+import jadeEngine.inputs.MouseListener;
 import utils.Logging;
 
 public class Window {

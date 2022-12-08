@@ -1,4 +1,4 @@
-package engine.gfx;
+package jadeEngine.gfx;
 
 import org.joml.Vector2f;
 

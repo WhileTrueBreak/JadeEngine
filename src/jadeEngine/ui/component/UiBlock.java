@@ -1,11 +1,11 @@
-package ui.component;
+package jadeEngine.ui.component;
 
 import org.joml.Vector4f;
 
-import engine.gfx.Sprite;
-import engine.gfx.Texture;
-import ui.Callback;
-import ui.UiRenderer;
+import jadeEngine.gfx.Sprite;
+import jadeEngine.gfx.Texture;
+import jadeEngine.ui.Callback;
+import jadeEngine.ui.UiRenderer;
 
 public class UiBlock extends UiComponent{
 	

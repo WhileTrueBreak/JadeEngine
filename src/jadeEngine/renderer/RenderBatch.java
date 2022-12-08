@@ -1,4 +1,4 @@
-package engine.renderer;
+package jadeEngine.renderer;
 
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -9,11 +9,11 @@ import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL30;
 
-import engine.gameobject.SpriteRenderer;
-import engine.gfx.Shader;
-import engine.gfx.Texture;
 import game.Game;
 import game.res.Assets;
+import jadeEngine.gameobject.SpriteRenderer;
+import jadeEngine.gfx.Shader;
+import jadeEngine.gfx.Texture;
 
 public class RenderBatch implements Comparable<RenderBatch>{
 

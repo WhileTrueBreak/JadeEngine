@@ -1,15 +1,15 @@
-package ui;
+package jadeEngine.ui;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import engine.Window;
-import ui.component.UiComponent;
-import ui.component.UiWrapper;
-import ui.constraint.AbsoluteConstraint;
-import ui.constraint.RelativeConstraint;
-import ui.constraint.UiConstraint;
+import jadeEngine.Window;
+import jadeEngine.ui.component.UiComponent;
+import jadeEngine.ui.component.UiWrapper;
+import jadeEngine.ui.constraint.AbsoluteConstraint;
+import jadeEngine.ui.constraint.RelativeConstraint;
+import jadeEngine.ui.constraint.UiConstraint;
 
 public class UiLayer {
 	

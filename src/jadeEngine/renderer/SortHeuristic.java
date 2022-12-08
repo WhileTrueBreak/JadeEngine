@@ -1,6 +1,6 @@
-package engine.renderer;
+package jadeEngine.renderer;
 
-import engine.gameobject.GameObject;
+import jadeEngine.gameobject.GameObject;
 
 public interface SortHeuristic {
 	float heuristic(GameObject obj);

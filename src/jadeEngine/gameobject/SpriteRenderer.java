@@ -1,11 +1,11 @@
-package engine.gameobject;
+package jadeEngine.gameobject;
 
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
-import engine.gfx.Sprite;
-import engine.gfx.Texture;
-import engine.renderer.Transform;
+import jadeEngine.gfx.Sprite;
+import jadeEngine.gfx.Texture;
+import jadeEngine.renderer.Transform;
 
 public class SpriteRenderer{
 	
