@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import jadeEngine.WindowHandler;
 import jadeEngine.display.Viewport;
 import jadeEngine.gameobject.GameObject;
 import jadeEngine.gameobject.SpriteRenderer;

@@ -26,7 +26,7 @@ public class WindowHandler {
 	}
 	
 	public double getDT() {
-		return 1/currentFps;
+		return window.getDT();
 	}
 	
 	public Window getWindow() { 

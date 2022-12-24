@@ -2,7 +2,6 @@ package game;
 
 import game.world.World;
 import jadeEngine.Program;
-import jadeEngine.WindowHandler;
 import jadeEngine.res.Assets;
 
 public class Game extends Program{

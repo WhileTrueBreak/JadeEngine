@@ -49,7 +49,6 @@ public class UiBatchRenderer {
 	private boolean rebufferData = true;
 	
 	private Matrix4f projMatrix, viewMatrix;
-	@SuppressWarnings("unused")
 	private boolean isDirty;
 	
 	private WindowHandler handler;

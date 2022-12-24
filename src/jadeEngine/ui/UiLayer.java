@@ -8,8 +8,6 @@ import jadeEngine.Window;
 import jadeEngine.WindowHandler;
 import jadeEngine.ui.component.UiComponent;
 import jadeEngine.ui.component.UiWrapper;
-import jadeEngine.ui.constraint.AbsoluteConstraint;
-import jadeEngine.ui.constraint.RelativeConstraint;
 import jadeEngine.ui.constraint.UiConstraint;
 
 public class UiLayer {
@@ -51,10 +49,10 @@ public class UiLayer {
 		
 		this.master = new UiWrapper();
 		this.master.setHandler(handler);
-		this.master.setConstraint(new AbsoluteConstraint(UiConstraint.T_X, 0));
-		this.master.setConstraint(new AbsoluteConstraint(UiConstraint.T_Y, 0));
-		this.master.setConstraint(new RelativeConstraint(UiConstraint.T_W, 1f, UiConstraint.P_W));
-		this.master.setConstraint(new RelativeConstraint(UiConstraint.T_H, 1f, UiConstraint.P_H));
+		this.master.setConstraint(UiConstraint.ABSOLUTE(UiConstraint.T_X, 0));
+		this.master.setConstraint(UiConstraint.ABSOLUTE(UiConstraint.T_Y, 0));
+		this.master.setConstraint(UiConstraint.RELATIVE(UiConstraint.T_W, 1f, UiConstraint.P_W));
+		this.master.setConstraint(UiConstraint.RELATIVE(UiConstraint.T_H, 1f, UiConstraint.P_H));
 		this.master.updateTransform();
 		
 		this.updateMasterList();

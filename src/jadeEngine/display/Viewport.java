@@ -71,8 +71,8 @@ public class Viewport {
 	
 	public void focusOn(GameObject obj) {
 		Vector2f objCenter = new Vector2f(obj.transform.getPosition().x+obj.transform.getScale().x/2, obj.transform.getPosition().y+obj.transform.getScale().y/2);
-		this.position.x = objCenter.x-this.windowWidth/2;
-		this.position.y = objCenter.y-this.windowHeight/2;
+		this.position.x = objCenter.x-DEFAULT_DIM_WIDTH/2;
+		this.position.y = objCenter.y-DEFAULT_DIM_HEIGHT/2;
 	}
 	
 	public float getScale() {
