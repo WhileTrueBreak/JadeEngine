@@ -6,9 +6,8 @@ import java.util.List;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-import game.Handler;
 import game.entity.staticEntity.Rect;
-import game.res.Assets;
+import jadeEngine.WindowHandler;
 import jadeEngine.display.Viewport;
 import jadeEngine.gameobject.GameObject;
 import jadeEngine.gameobject.SpriteRenderer;
@@ -16,31 +15,33 @@ import jadeEngine.gfx.Sprite;
 import jadeEngine.renderer.Renderer;
 import jadeEngine.renderer.SortHeuristic;
 import jadeEngine.renderer.Transform;
+import jadeEngine.res.Assets;
 import jadeEngine.ui.UiLayer;
 
 public class World {
 	
-	private Handler handler;
+	private WindowHandler handler;
 	private Viewport viewport;
 	
-	private Renderer renderer = new Renderer(new SortHeuristic() {
-		public float heuristic(GameObject obj) {return obj.transform.getPosition().y;}
-	});
+	private Renderer renderer;
 	
-	private UiLayer uiLayer = new UiLayer();
+	private UiLayer uiLayer;
 	
     protected List<GameObject> gameObjects = new ArrayList<GameObject>();
 
     private boolean isRunning = false;
     
-	public World(Handler handler) {
+	public World(WindowHandler handler) {
 		this.handler = handler;
 	}
     
     public void init() {
-		handler.setWorld(this);
-    	this.viewport = new Viewport(new Vector2f());
-    	handler.setViewport(viewport);
+    	this.viewport = new Viewport(this.handler, new Vector2f());
+    	this.renderer = new Renderer(this.viewport, new SortHeuristic() {
+			public float heuristic(GameObject obj) {return obj.transform.getPosition().y;}
+		});
+    	this.uiLayer = new UiLayer(this.handler);
+    	
 
     	GameObject go3 = new Rect("r1", new Transform(new Vector3f(0, 0, 0), new Vector2f(100, 100)));
     	go3.setSpriteRenderer(new SpriteRenderer(new Sprite(Assets.getTexture(Assets.T_GREEN_ALPHA))));
