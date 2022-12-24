@@ -65,21 +65,28 @@ public class World {
     	GameObject go5 = new Rect("r1", new Transform(new Vector3f(0, 0, 0), new Vector2f(1920, 1080)));
     	go5.setSpriteRenderer(new SpriteRenderer(new Sprite(Assets.getTexture(Assets.T_RED_ALPHA))));
     	this.addGameObject(go5);
+
+    	UiComponent br1 = new UiBlock(new Vector4f(1, 1, 1, 1));
+    	UiComponent br2 = new UiBlock(new Vector4f(1, 1, 1, 0.5f));
     	
-    	UiComponent br = new UiBlock(new Vector4f(1, 1, 1, 1));
-    	br.setConstraint(UiConstraint.CENTER_X);
-    	br.setConstraint(UiConstraint.CENTER_Y);
-    	br.setConstraint(UiConstraint.ABSOLUTE(UiConstraint.T_W, 2));
-    	br.setConstraint(UiConstraint.HEIGHT_ASPECT(1.0f));
+    	br1.setConstraint(UiConstraint.CENTER_X);
+    	br1.setConstraint(UiConstraint.CENTER_Y);
+    	br1.setConstraint(UiConstraint.ABSOLUTE(UiConstraint.T_W, 5));
+    	br1.setConstraint(UiConstraint.HEIGHT_ASPECT(1.0f));
     	
-    	uiLayer.getMaster().addChild(br);
+    	br2.setConstraint(UiConstraint.ABSOLUTE(UiConstraint.T_X, 0));
+    	br2.setConstraint(UiConstraint.ABSOLUTE(UiConstraint.T_Y, 0));
+    	br2.setConstraint(UiConstraint.ABSOLUTE(UiConstraint.T_W, 10));
+    	br2.setConstraint(UiConstraint.RELATIVE(UiConstraint.T_H, 0.5f, UiConstraint.P_H));
+    	
+    	uiLayer.getMaster().addChild(br1, br2);
     }
     
 	public void update() {
 		Vector3f pos = go3.transform.getPosition();
 		pos.add(new Vector3f(dir.x*(float)this.handler.getDT(), dir.y*(float)this.handler.getDT(), 0));
 		
-		this.viewport.focusOn(go3);
+//		this.viewport.focusOn(go3);
 		this.gameObjects.forEach(go -> go.updateAll());
         this.uiLayer.update();
         this.renderer.render();
