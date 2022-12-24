@@ -1,9 +1,9 @@
 package jadeEngine.ui;
 
-import game.Handler;
+import jadeEngine.WindowHandler;
 
 public interface Callback {
 	
-	public void action(Handler handler);
+	public void action(WindowHandler handler);
 	
 }

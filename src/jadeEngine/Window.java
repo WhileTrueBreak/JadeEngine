@@ -12,7 +12,6 @@ import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
 
-import game.Game;
 import jadeEngine.inputs.KeyListener;
 import jadeEngine.inputs.MouseListener;
 import utils.Logging;
@@ -21,26 +20,18 @@ public class Window {
 	
 	private static Window window = null; 
 	
-	public static Window get(int width, int height, String title) {
+	public static Window get(int width, int height, String title, Program program) {
 		if(Window.window == null) {
-			Window.window = new Window(width, height, title);
+			Window.window = new Window(width, height, title, program);
 		}
 		return Window.window;
 	}
 	
 	public static Window get() {
 		if(Window.window == null) {
-			Window.window = new Window(64, 64, "");
+			return null;
 		}
 		return Window.window;
-	}
-
-	public static int getWidth() {
-		return Window.window.width;
-	}
-
-	public static int getHeight() {
-		return Window.window.height;
 	}
 	
 	public static boolean hasResized() {
@@ -58,14 +49,20 @@ public class Window {
 	private String title;
 	private long glfwWindow;
 	
+	private Program program;
+	private WindowHandler handler;
+	
 	private double dt;
 	
 	private boolean resized = false;
 	
-	private Window(int width, int height, String title) {
+	private Window(int width, int height, String title, Program program) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		this.program = program;
+		this.handler = new WindowHandler(this);
+		this.program.setWindowHandler(this.handler);
 	}
 	
 	public void run() {
@@ -130,8 +127,11 @@ public class Window {
 		GL11.glViewport(0, 0, width, height);
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE_MINUS_SRC_ALPHA);
+		
 		//create game wrapper
-		Game.get().init();
+		this.handler = new WindowHandler(this);
+		this.program.setWindowHandler(handler);
+		this.program.init();
 	}
 	
 	public void loop() {
@@ -148,7 +148,7 @@ public class Window {
 			GL11.glClearColor(0, 0, 0, 1);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
-			Game.get().update();
+			this.program.update();
 			MouseListener.endFrame();
 
 			GLFW.glfwSwapBuffers(glfwWindow);
@@ -183,6 +183,14 @@ public class Window {
 	
 	public double getDT() {
 		return this.dt;
+	}
+
+	public int getWidth() {
+		return this.width;
+	}
+
+	public int getHeight() {
+		return this.height;
 	}
 	
 }

@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import jadeEngine.WindowHandler;
+import jadeEngine.display.Viewport;
 import jadeEngine.gameobject.GameObject;
 import jadeEngine.gameobject.SpriteRenderer;
 import jadeEngine.gfx.Texture;
@@ -18,13 +20,16 @@ public class Renderer {
 	private List<RenderBatch> batches;
 	
 	private SortHeuristic sortHeuristic;
+	private Viewport viewport;
 
-	public Renderer() {
+	public Renderer(Viewport viewport) {
+		this.viewport = viewport;
 		this.batches = new ArrayList<>();
 		this.sortHeuristic = new SortHeuristic() {public float heuristic(GameObject obj) {return 0;}};
 	}
 	
-	public Renderer(SortHeuristic sortHeuristic) {
+	public Renderer(Viewport viewport, SortHeuristic sortHeuristic) {
+		this.viewport = viewport;
 		this.batches = new ArrayList<>();
 		this.sortHeuristic = sortHeuristic;
 	}
@@ -204,6 +209,10 @@ public class Renderer {
 
 	public SortHeuristic getSortHeuristic() {
 		return sortHeuristic;
+	}
+
+	public Viewport getViewport() {
+		return this.viewport;
 	}
 	
 }

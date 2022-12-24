@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import jadeEngine.Window;
+import jadeEngine.WindowHandler;
 import jadeEngine.ui.component.UiComponent;
 import jadeEngine.ui.component.UiWrapper;
 import jadeEngine.ui.constraint.AbsoluteConstraint;
@@ -40,11 +41,16 @@ public class UiLayer {
 	
 	private boolean hasMasterListChanged;
 	
-	public UiLayer() {
+	private WindowHandler handler;
+	
+	public UiLayer(WindowHandler handler) {
+		this.handler = handler;
+		
 		this.batchRenderers = new ArrayList<UiBatchRenderer>();
 		this.masterList = new ArrayList<UiComponent>();
 		
 		this.master = new UiWrapper();
+		this.master.setHandler(handler);
 		this.master.setConstraint(new AbsoluteConstraint(UiConstraint.T_X, 0));
 		this.master.setConstraint(new AbsoluteConstraint(UiConstraint.T_Y, 0));
 		this.master.setConstraint(new RelativeConstraint(UiConstraint.T_W, 1f, UiConstraint.P_W));
@@ -70,7 +76,7 @@ public class UiLayer {
 	
 	public void updateRenderers() {
 		this.batchRenderers = new ArrayList<UiBatchRenderer>();
-		UiBatchRenderer batchRenderer = new UiBatchRenderer(this.masterList.size());
+		UiBatchRenderer batchRenderer = new UiBatchRenderer(this.handler, this.masterList.size());
 		this.batchRenderers.add(batchRenderer);
 		batchRenderer.start();
 		for(int i = 0;i < this.masterList.size();i++) {
@@ -79,7 +85,7 @@ public class UiLayer {
 				if(		!batchRenderer.hasTextureRoom() && 
 						!batchRenderer.hasTexture(this.masterList.get(i).getUiRenderer().getTexture()) && 
 						this.masterList.get(i).getUiRenderer().getTexture() != null) {
-					batchRenderer = new UiBatchRenderer(this.masterList.size());
+					batchRenderer = new UiBatchRenderer(this.handler, this.masterList.size());
 					this.batchRenderers.add(batchRenderer);
 					batchRenderer.start();
 				}

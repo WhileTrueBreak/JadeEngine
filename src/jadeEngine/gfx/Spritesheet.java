@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.joml.Vector2f;
 
-import game.res.Assets;
+import jadeEngine.res.Assets;
 
 public class Spritesheet {
 

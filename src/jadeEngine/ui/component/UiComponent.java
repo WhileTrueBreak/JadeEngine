@@ -8,7 +8,7 @@ import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 
-import jadeEngine.Window;
+import jadeEngine.WindowHandler;
 import jadeEngine.inputs.MouseListener;
 import jadeEngine.renderer.Transform;
 import jadeEngine.ui.Callback;
@@ -40,7 +40,11 @@ public abstract class UiComponent {
 	
 	protected UiConstraint[] constraints;
 	
+	protected WindowHandler handler;
+	
 	public UiComponent() {
+		this.handler = null;
+		
 		this.children = new ArrayList<UiComponent>();
 		this.parent = null;
 
@@ -61,7 +65,7 @@ public abstract class UiComponent {
 	public abstract void update();
 	
 	public void updateTransform() {
-		float[] transforms = {0, 0, Window.getWidth(), Window.getHeight(), 0, 0, 0, 0};
+		float[] transforms = {0, 0, this.handler.getWidth(), this.handler.getHeight(), 0, 0, 0, 0};
 		if(this.parent != null) {
 			this.offset.x = this.parent.transform.getPosition().x + this.parent.offset.x;
 			this.offset.y = this.parent.transform.getPosition().y + this.parent.offset.y;
@@ -91,7 +95,7 @@ public abstract class UiComponent {
 	
 	public void actions() {
 		double mx = MouseListener.getMouseX(), my = MouseListener.getMouseY();
-		my = Window.getHeight() - my;
+		my = this.handler.getHeight() - my;
 		if(		mx >= this.transform.getPosition().x && 
 				my >= this.transform.getPosition().y && 
 				mx <= this.transform.getPosition().x+this.transform.getScale().x && 
@@ -112,6 +116,7 @@ public abstract class UiComponent {
 	public void addChild(UiComponent child) {
 		if(child.parent != null) return;
 		if(this.children.contains(child)) return;
+		child.setHandler(this.handler);
 		this.setDirtyComponentList();
 		this.children.add(child);
 		child.parent = this;
@@ -190,6 +195,14 @@ public abstract class UiComponent {
 	
 	public UiConstraint getConstraint(int index) {
 		return this.constraints[index];
+	}
+
+	public WindowHandler getHandler() {
+		return handler;
+	}
+
+	public void setHandler(WindowHandler handler) {
+		this.handler = handler;
 	}
 	
 }

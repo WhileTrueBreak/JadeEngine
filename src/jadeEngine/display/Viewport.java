@@ -4,7 +4,7 @@ import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-import jadeEngine.Window;
+import jadeEngine.WindowHandler;
 import jadeEngine.gameobject.GameObject;
 
 public class Viewport {
@@ -20,7 +20,11 @@ public class Viewport {
 	public Vector2f position;
 	public Vector2f offset;
 	
-	public Viewport(Vector2f position) {
+	private WindowHandler handler;
+	
+	public Viewport(WindowHandler handler, Vector2f position) {
+		this.handler = handler;
+		
 		this.position = position;
 		this.offset = new Vector2f();
 		this.projMatrix = new Matrix4f();
@@ -32,18 +36,18 @@ public class Viewport {
 	public void adjustProjection() {
 		this.projMatrix.identity();
 		float scale;
-		float cRatio = Window.getWidth()/(float)Window.getHeight();
+		float cRatio = this.handler.getWidth()/(float)this.handler.getHeight();
 		if(cRatio < Viewport.DEFAULT_DIM_RATIO) {
-			scale = Viewport.DEFAULT_DIM_WIDTH/(float)Window.getWidth();
+			scale = Viewport.DEFAULT_DIM_WIDTH/(float)this.handler.getWidth();
 			this.windowWidth = Viewport.DEFAULT_DIM_WIDTH;
 			this.windowHeight = this.windowWidth/cRatio;
 		} else {
-			scale = Viewport.DEFAULT_DIM_HEIGHT/(float)Window.getHeight();
+			scale = Viewport.DEFAULT_DIM_HEIGHT/(float)this.handler.getHeight();
 			this.windowHeight = Viewport.DEFAULT_DIM_HEIGHT;
 			this.windowWidth = this.windowHeight*cRatio;
 		}
-		float newWidth = Window.getWidth()*scale;
-		float newHeight = Window.getHeight()*scale;
+		float newWidth = this.handler.getWidth()*scale;
+		float newHeight = this.handler.getHeight()*scale;
 		
 		float yOffset = (this.windowHeight - DEFAULT_DIM_HEIGHT)/2;
 		float xOffset = (this.windowWidth - DEFAULT_DIM_WIDTH)/2;

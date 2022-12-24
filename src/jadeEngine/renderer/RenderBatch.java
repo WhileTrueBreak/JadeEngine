@@ -9,11 +9,10 @@ import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL30;
 
-import game.Game;
-import game.res.Assets;
 import jadeEngine.gameobject.SpriteRenderer;
 import jadeEngine.gfx.Shader;
 import jadeEngine.gfx.Texture;
+import jadeEngine.res.Assets;
 
 public class RenderBatch implements Comparable<RenderBatch>{
 
@@ -123,8 +122,8 @@ public class RenderBatch implements Comparable<RenderBatch>{
 
 		this.shader.use();
 		this.shader.uploadIntArray("uTextures", this.texSlots);
-		this.shader.uploadMat4f("uProj", Game.get().getWorld().getViewport().getProjMatrix());
-		this.shader.uploadMat4f("uView", Game.get().getWorld().getViewport().getViewMatrix());
+		this.shader.uploadMat4f("uProj", this.parent.getViewport().getProjMatrix());
+		this.shader.uploadMat4f("uView", this.parent.getViewport().getViewMatrix());
 
 		for(int i = 0;i < this.textures.size();i++) {
 			GL30.glActiveTexture(GL30.GL_TEXTURE0 + i);

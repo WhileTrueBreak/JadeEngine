@@ -9,10 +9,10 @@ import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL30;
 
-import game.res.Assets;
-import jadeEngine.Window;
+import jadeEngine.WindowHandler;
 import jadeEngine.gfx.Shader;
 import jadeEngine.gfx.Texture;
+import jadeEngine.res.Assets;
 
 public class UiBatchRenderer {
 
@@ -49,12 +49,17 @@ public class UiBatchRenderer {
 	private boolean rebufferData = true;
 	
 	private Matrix4f projMatrix, viewMatrix;
+	@SuppressWarnings("unused")
 	private boolean isDirty;
 	
-	public UiBatchRenderer(int maxRenderers) {
+	private WindowHandler handler;
+	
+	public UiBatchRenderer(WindowHandler handler, int maxRenderers) {
 		IntBuffer binds = BufferUtils.createIntBuffer(1);
 		GL30.glGetIntegerv(GL30.GL_MAX_TEXTURE_IMAGE_UNITS, binds);
 
+		this.handler = handler;
+		
 		this.maxTextures = binds.get(0);
 		this.maxRenderers = maxRenderers;
 		this.numRenderers = 0;
@@ -224,7 +229,7 @@ public class UiBatchRenderer {
 	public Matrix4f createProjMatrix() {
 		this.projMatrix = new Matrix4f();
 		this.projMatrix.identity();
-		this.projMatrix.ortho(0.0f, Window.getWidth(), 0.0f, Window.getHeight(), 0, 100);
+		this.projMatrix.ortho(0.0f, this.handler.getWidth(), 0.0f, this.handler.getHeight(), 0, 100);
 		return this.projMatrix;
 	}
 	
